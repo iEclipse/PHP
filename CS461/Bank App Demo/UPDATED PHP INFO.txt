@@ -1,0 +1,134 @@
+Installation Guide:
+1. Install xamp.
+2. Place all files in C:\xampp\htdocs.
+
+=======================
+DIFFERENCES FROM JAVA
+=======================
+
+- PHP is a procedural programming language with OOP capabilities. (Programming Paradigm)
+- PHP can use both '#' and '//' for single line comments.
+- Everything except variable names are not case-sensitive.
+- Concatenation is marked with a '.' instead of a '+'.
+- You can use HTML tags for echo statements.
+- You can also use ',' (commas) in echo statements to concatenate strings.
+- Functions instead of Methods
+- Global keyword can access global variables from within functions.
+- Instead of using 'global', you can access the global variables by using "$GLOBALS['varname']"
+- Variables from within functions can avoid being deleted using the 'static' keyword.
+- PHP primitive data types: String, Int, Float, Bool, Array, Object, NULL, and Resource.
+- Resource is not an actual data type. It stores references to functions and resources not in the PHP source code.
+- The function var_dump($variable) returns the data type and value of a variable.
+- Variables are denoted by a $ before the name and do not need to be given a type (Loosely Typed).
+- Variables can change data types by calling the function 'settype($variable,"type")'.
+- Instead of using the '.' to enter a class, you use '->'.
+- String functions include: 'strlen($String)', 'str_word_count($String)', 'strrev($String)', 'strpos($String)',	'str_replace($PhraseToReplace, $ReplaceWithThis, $StringActuallyBeingModified)'
+- Constants can be created by using the method 'define("name", value, false)' and are global across the entire script. You then drop the '$' when referring to the constant. You have the option to specify whether or not[Default] - they are case-sensitive by using the boolean third parameter.
+- PHP has an arithmetic operator that allows for exponentiation '**'. 
+- The '==' operator does not check for type, while the '===' does.
+- Similarly the '!=' does not check for type, while the '!===" does.
+- The '<>' operator does the exact same thing as the '!=' operator.
+- PHP supports logical operators '&&', '||', and '!' as well as their english counterparts 'and', 'or', 'xor'.
+- For Strings, instead of using '+=', use '.=' to concatenate them.
+- Function names are not case-sensitive.
+- Functions can have default arguments; EXAMPLE: 'function($variable = 50)'.
+- Functions return values in the code block, but do not have to specify return type in the function header.
+- The three types of arrays in PHP are indexed, associative, and multidimentional arrays.
+- Arrays are initialized with the call, $variable = 'array()'.
+- You do not have to specify a fixed size or type of array.
+- To add to the array, use '$array[key] = value' and the key can be left empty and be either a string or integer.
+- To iterate through an associative array, use 'foreach($array as $key => $value)'.
+- You can get the length of an array with the function: 'count($array)'.
+- Sort an indexed array using the 'sort($array)' function and for the reverse order use the 'rsort($array)' function.
+- Sort an associative array by value using the 'asort($array)' function and for the reverse order use the 'arsort($array)' function.
+- Sort an associative array by key using the 'ksort($array)' function and for the reverse order use the 'krsort($array)' function.
+- When using echo, variable names are replaced with their values inside the quotation marks.
+
+========================================================================================
+
+==================
+BANK PSEUDOCODE
+==================
+
+global $var Username
+global $var Name
+global $var Balance
+global $var History
+
+Main(){
+   while (true){
+      In HTML have a login screen for username & password and option to create account.
+      LoadAccount();
+      LoggedOnUI();
+   }
+}
+
+LoggedOnUI(){
+   Show Page for Logged In Account:
+   + CheckBalance
+   + CheckHistory
+   + Deposit
+   + Withdraw
+   + Logout
+   + DeleteAccount
+}
+
+LoadAccount(){
+   get Form Information from WebPage;
+
+   if (!Account/File Exists){
+      echo "Account Does Not Exist for Username."
+        If (Prompt For Account Creation == True)
+         AddAccount();
+      Else
+         Return to Login;
+   }
+   else if(Valid Username && Password)
+      Load Information from File;
+}
+
+AddAccount(){
+   Prompt for User Info;
+   Create File for Username;
+   Write Username, Password, Name, InitialDeposit to File;
+}
+
+DeleteAccount(){
+   Delete File;
+   Logout();
+   echo "Account Deleted";
+}
+
+CheckBalance(){
+   echo Balance;
+}
+
+CheckHistory(){
+   if(History != Empty)
+      echo "No History Found."
+   else
+      for(History Length)
+         echo History[index];
+}
+
+Deposit(Amount){
+   Balance += Amount;
+   Add to History Variable;
+   Write Line to History on File;
+   echo "Deposited $Amount.";
+}
+
+Withdraw(Amount){
+   if(Balance >= Amount){
+      Balance -= $Amount;
+      Add to History Variable;
+      Write Line to History on File;
+      echo "Withdrawn $Amount.";
+   } else
+      echo "Insufficient Funds.";
+}
+
+Logout(){
+   Unload Info;
+   Return to Login;
+}
